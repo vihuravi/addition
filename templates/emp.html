@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<style>
+
+.table td {
+   text-align: center;
+}
+.table th {
+   text-align: center;
+}
+    </style>
+</head>
+<body>
+            <center><h2><b>Employee Details</b></h2></center>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <font color="red" >{{msg}}</font>
+                  </div>
+                </div><br>
+
+        <form class="form-horizontal" action="/" method="post">
+
+                 <div class="form-group">
+                      <label class="control-label col-sm-2" for="eid">Employee Id : &nbsp;: </label>
+                      <div class="col-sm-4">
+                        <input type="text" class="form-control" id="eid" placeholder="Enter Id" name="empid" value="{{emp.eid}}" readonly>
+                      </div>
+                 </div>
+
+                 <div class="form-group">
+                      <label class="control-label col-sm-2" for="name">Employee Name : &nbsp;: </label>
+                      <div class="col-sm-4">
+                        <input type="text" class="form-control" id="name" placeholder="Enter name" name="empname" value="{{emp.ename}}">
+                      </div>
+                 </div>
+
+                 <div class="form-group">
+                      <label class="control-label col-sm-2" for="role">Employee Role : &nbsp;: </label>
+                      <div class="col-sm-4">
+                        <input type="text" class="form-control" id="role" placeholder="Enter role" name="emprole" value="{{emp.erole}}">
+                      </div>
+                 </div>
+
+                 <div class="form-group">
+                      <label class="control-label col-sm-2" for="salary">Employee Salary : &nbsp;: </label>
+                      <div class="col-sm-4">
+                        <input type="text" class="form-control" id="salary" placeholder="Enter salary" name="empsal" value="{{emp.esalary}}">
+                      </div>
+                 </div>
+
+                <div class="form-group">
+                      <label class="control-label col-sm-2" for="adr">Employee Address : &nbsp;: </label>
+                      <div class="col-sm-4">
+                        <input type="text" class="form-control" id="adr" placeholder="Enter address" name="adr" value="{{emp.eadr}}">
+                      </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+
+            </form><br>
+
+
+{% if emplist %}
+<div class="bs-example">
+    <table class="table">
+        <thead class="thead-dark">
+                    <tr><th>Emp Id</th> <th>Emp Name</th> <th>Emp Role</th> <th>Emp Salary</th> <th>Emp Address</th> <th>Action</th></tr>
+                </thead>
+                <tbody>
+                        {% for emp in emplist %}
+                        <tr>
+                            <td>{{emp.eid}}</td>
+                            <td>{{emp.ename}}</td>
+                            <td>{{emp.erole}}</td>
+                            <td>{{emp.esalary}}</td>
+                            <td>{{emp.eadr}}</td>
+                            <td>
+                                <a href="/emp/edit/{{emp.eid}}"><button type="button" class="btn btn-outline-success">EDIT</button></a>
+                                <a href="/emp/delete/{{emp.eid}}"><button type="button" class="btn btn-outline-danger">DELETE</button></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                </tbody>
+            </table>
+            {%else%}
+            <h3>No Records Found In Database</h3>
+        {%endif%}
+                </div>
+
+</body>
+</html>
