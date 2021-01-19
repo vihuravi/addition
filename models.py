@@ -1,4 +1,4 @@
-from employee.orm_configuration import db
+from orm_configuration import db
 
 class Employee(db.Model):
     eid = db.Column('emp_id', db.Integer(),primary_key=True)

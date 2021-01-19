@@ -1,5 +1,5 @@
-from employee.models import Employee
-from employee.orm_configuration import app,db
+from models import Employee
+from orm_configuration import app,db
 from flask import request,render_template
 
 empId = 0
