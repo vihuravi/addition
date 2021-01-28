@@ -1,1 +1,1 @@
-web Werkzeug setup:app
+web gunicorn setup:app
